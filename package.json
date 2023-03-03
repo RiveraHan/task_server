@@ -4,9 +4,9 @@
   "description": "MERN API para MERN TASKS",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "dev": "nodemon ."
-  },
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+    },
   "author": "Juan Pablo De la torre",
   "license": "ISC",
   "devDependencies": {

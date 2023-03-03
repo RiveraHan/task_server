@@ -1,8 +1,14 @@
-# syntax=docker/dockerfile:1
+# Imagen base
+FROM node:14
 
-FROM node:18
-WORKDIR /app-task-back
-COPY . .
-RUN npm install
-CMD ["node", "src/index.js"]
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de la aplicación
+COPY . /app
+
+# Exponer puerto
 EXPOSE 3000
+
+# Ejecutar aplicación
+CMD ["npm", "start"]
