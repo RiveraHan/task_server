@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Exponer puerto
-EXPOSE 3000
+EXPOSE 4000
 
 # Ejecutar aplicación
 CMD ["npm", "start"]

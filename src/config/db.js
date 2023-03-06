@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-require("dotenv").config({ path: ".env" });
+const mongoose = require('mongoose');
+require('dotenv').config({ path: '.env' });
 
 const conectarDB = async () => {
   try {
@@ -8,9 +8,9 @@ const conectarDB = async () => {
       useUnifiedTopology: true,
       useFindAndModify: false,
     });
-    console.info("DB Conectada");
+    console.info('DB Conectada');
   } catch (error) {
-    console.log("hubo un error");
+    console.log('hubo un error');
     console.error(error);
     process.exit(1); // Detener la app
   }

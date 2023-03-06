@@ -1,16 +1,25 @@
 {
-  "name": "merntaskservidor",
+  "name": "task_server",
   "version": "1.0.0",
-  "description": "MERN API para MERN TASKS",
+  "description": "API TASKS",
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
-    },
-  "author": "Juan Pablo De la torre",
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint ./src/**/*.js",
+    "lint:fix": "eslint --fix ./src/**/*.js",
+    "format": "prettier --write ./src/**/*.js"
+  },
+  "author": "Hanzell Rivera",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.0"
+    "eslint": "^8.35.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.0",
+    "prettier": "^2.8.4"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
