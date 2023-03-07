@@ -1,14 +1,22 @@
 version: '3'
+
 services:
-  app:
+  task_server:
     build: .
+    image: task_server
     ports:
-      - '3000:3000'
+      - '4000:4000'
     depends_on:
-      - db
-    environment:
-      - MONGODB_URI=mongodb://db:27017/myapp
-  db:
+      - db_mongo
+    volumes:
+      - .:/usr/src/task_server 
+
+  db_mongo:
     image: mongo
     ports:
       - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

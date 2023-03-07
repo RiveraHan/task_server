@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  task_server:
+    container_name: task_server_development
+    networks:
+      - development
+    environment:
+      - NODE_ENV=development
+    command: sh -c "npm install && npm run dev"
+
+  db_mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    networks:
+      - development
+
+networks:
+  development:
+    driver: bridge

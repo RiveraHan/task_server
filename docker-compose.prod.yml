@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  task_server:
+    container_name: task_server_production
+    networks:
+      - production
+    environment:
+      - NODE_ENV=production
+    command: sh -c "npm install --production && npm start"
+
+  db_mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    networks:
+      - production
+
+networks:
+  production:
+    driver: bridge
