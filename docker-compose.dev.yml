@@ -6,6 +6,7 @@ services:
     networks:
       - development
     environment:
+      - MONGODB_URL=mongodb://user:password@db_mongo:27017/tasks_dev?authSource=admin
       - NODE_ENV=development
     command: sh -c "npm install && npm run dev"
 
@@ -15,6 +16,11 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     networks:
       - development
+    volumes:
+      - mongo_data_dev:/data/db
+
+volumes:
+  mongo_data_dev:
 
 networks:
   development:

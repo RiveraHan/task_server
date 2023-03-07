@@ -6,6 +6,7 @@ services:
     networks:
       - production
     environment:
+      - MONGODB_URL=mongodb://user:password@db_mongo:27017/tasks_prod?authSource=admin
       - NODE_ENV=production
     command: sh -c "npm install --production && npm start"
 
@@ -15,6 +16,11 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     networks:
       - production
+    volumes:
+      - mongo_data_prod:/data/db
+
+volumes:
+  mongo_data_prod:
 
 networks:
   production:

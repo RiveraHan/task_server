@@ -6,6 +6,7 @@ services:
     networks:
       - test
     environment:
+      - MONGODB_URL=mongodb://user:password@db_mongo:27017/tasks_test?authSource=admin
       - NODE_ENV=test
     command: sh -c "npm install && npm run test"
 
@@ -15,6 +16,11 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     networks:
       - test
+    volumes:
+      - mongo_data_test:/data/db
+
+volumes:
+  mongo_data_test:
 
 networks:
   test:
