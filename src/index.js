@@ -1,33 +1,26 @@
 const express = require('express');
 const cors = require('cors');
-const conectarDB = require('./config/db');
+const connectDB = require('./config/db');
 
-// crear el servidor
 const app = express();
 
-// Conectar a la base de datos
-conectarDB();
+connectDB();
 
-// habilitar cors
 app.use(cors());
 
-// Habilitar express.json
 app.use(express.json({ extended: true }));
 
-// puerto de la app
 const port = process.env.PORT || 4000;
 
-// Importar rutas
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/user', require('./routes/user'));
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/proyectos', require('./routes/proyectos'));
-app.use('/api/tareas', require('./routes/tareas'));
+app.use('/api/project', require('./routes/project'));
+app.use('/api/task', require('./routes/task'));
 
-// arrancar la app
 app.listen(port, () => {
-  console.log(`The server on port ${port}`);
+  console.info(`The server on port ${port}`);
 });
