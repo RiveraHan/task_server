@@ -44,6 +44,7 @@ exports.createUser = async (req, res) => {
       }
     );
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(400).send('There was an error');
   }

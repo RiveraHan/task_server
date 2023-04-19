@@ -8,8 +8,10 @@ const connectDB = async () => {
       useUnifiedTopology: true,
       useFindAndModify: false,
     });
+    // eslint-disable-next-line no-console
     console.info('Connected DB');
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     process.exit(1);
   }

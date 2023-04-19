@@ -15,6 +15,7 @@ exports.createProject = async (req, res) => {
     project.save();
     res.json(project);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('There was an error creating');
   }
@@ -27,6 +28,7 @@ exports.getProjects = async (req, res) => {
     });
     res.json({ projects });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('There was an error getting');
   }
@@ -64,6 +66,7 @@ exports.updateProject = async (req, res) => {
 
     res.json({ project });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('Sever error ');
   }
@@ -84,6 +87,7 @@ exports.deleteProject = async (req, res) => {
     await Project.findOneAndRemove({ _id: req.params.id });
     res.json({ msg: 'Deleted project ' });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('Sever error');
   }

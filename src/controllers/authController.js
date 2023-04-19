@@ -41,6 +41,7 @@ exports.authenticateUser = async (req, res) => {
       }
     );
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   }
 };
@@ -50,6 +51,7 @@ exports.authenticatedUser = async (req, res) => {
     const user = await User.findById(req.user.id).select('-password');
     res.json({ user });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).json({ msg: 'There was a mistake' });
   }

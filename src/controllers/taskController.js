@@ -24,6 +24,7 @@ exports.createTask = async (req, res) => {
     await task.save();
     res.json({ task });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('There was an error saving');
   }
@@ -45,6 +46,7 @@ exports.getTasks = async (req, res) => {
     const tasks = await Task.find({ project }).sort({ created: -1 });
     res.json({ tasks });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('TThere was an error');
   }
@@ -75,6 +77,7 @@ exports.updateTask = async (req, res) => {
 
     res.json({ task });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     res.status(500).send('There was an error updating');
   }
@@ -99,7 +102,7 @@ exports.deleteTask = async (req, res) => {
     await Task.findOneAndRemove({ _id: req.params.id });
     res.json({ msg: 'Deleted task' });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res.status(500).send('There was an error');
   }
 };
